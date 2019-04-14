@@ -27,7 +27,6 @@ let way2 = (str) => {
         } else {
             hashTable[sub] = 0;
         }
-        console.log(hashTable[sub]);
     }
     hashTable
     return unique;
