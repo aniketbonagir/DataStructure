@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<button onclick="myFunctionForLocal()">Local</button>
+<br/><br/>
+<button onclick="myFuncSession()">Session</button>
+
+
+
+
+<script>
+function myFunctionForLocal() {
+	SetInLocalStorage('myCat', 'Tom');
+	var cat = getDataFromLocalStorage('myCat');
+	console.log(cat)
+}
+
+function myFuncSession() {
+	setInSessionStorage('myCat', 'Tom');
+	var cat = getDataFromSessionStorage('myCat');
+	console.log(cat)
+}
+
+
+
+// Session Storage Methods
+function setInSessionStorage(key, data) {
+	sessionStorage.setItem(key, data);
+}
+
+function getDataFromSessionStorage(key) {
+	return sessionStorage.getItem(key);
+}
+
+function removeDataFromSessionStorage(key) {
+	localStorage.removeItem(key);
+}
+
+function clearSessionStorage() {
+	localStorage.clear();
+}
+
+//------ Local Storage Methods ----------------------------------------------------
+function SetInLocalStorage(key, data) {
+	localStorage.setItem(key, data);
+}
+
+function getDataFromLocalStorage(key) {
+	return localStorage.getItem(key);
+}
+
+function removeDataFromLocalStorage(key) {
+	localStorage.removeItem(key);
+}
+
+function clearLocalStorage() {
+	localStorage.clear();
+}
+
+
+</script>
+
+</body>
+</html>

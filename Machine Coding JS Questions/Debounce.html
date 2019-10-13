@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<!-- <button>Try it</button> -->
+
+<input type="text" name="search" onkeypress=betterFunction()>
+
+
+<script>
+let betterFunction = debounce(onTextChange, 300);
+
+let counter =0;
+
+function onTextChange() {
+counter++;
+console.log("Input Typed-->"+counter);
+}
+
+function debounce(fn, delay) {
+    let timer;
+    return function() {
+        const context = this;
+        const args = arguments;
+        clearTimeout(timer);
+        timer = setTimeout(() => fn.apply(context, args), delay);
+    }
+}
+
+</script>
+
+</body>
+</html>
