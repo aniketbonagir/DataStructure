@@ -32,6 +32,17 @@ function addCommentToWall(List) {
     $( ".comment-list" ).append(str);
 }
 
+function addCommentToWall2(List) {
+    let str = [];
+    for(let i =0; i< List.length; i++) {
+        var txt2 = $('<div class="comment-item__username"></div>').text(List[i].username);
+        var txt3 = $('<div class="comment-item__message"></div>').text(List[i].message);
+        str.push($('<div class="comment-item"></div>').append(txt2, txt3));
+    }
+    
+   $( ".comment-list" ).append(str);
+}
+
 function setLoading() {
     $( ".comment-list" ).text( "Loading..." );
 }
