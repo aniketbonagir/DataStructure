@@ -22,8 +22,9 @@ Array.prototype.mySlice = function mySlice(begin, end) {
     var start = begin || 0;
     start = (start >=0) ? start : Math.max(0, start + len);
 
-    // to handle for negative end
+    // To make sure end is within the array length
     var upto = (typeof end === 'number') ? Math.min(end, len) : len;
+    // to handle for negative end
     if(end < 0) {
         upto = len + end;
     }
