@@ -25,7 +25,7 @@ function reverseIterative(head) {
 
 	while(current != null && current.next != null) {
 		if(tmp1 !== null) {
-			tmp.next.next = current.next;
+			tmp1.next.next = current.next;
 		}
 
 		tmp1 = current.next;
