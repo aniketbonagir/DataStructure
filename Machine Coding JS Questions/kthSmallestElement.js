@@ -27,13 +27,14 @@ function partition(arr, low, high) {
     for(let i = low+1; i<= high; i++ ) {
         if(arr[i] < pivot) {
             j++;
-            swap(arr, arr[i], arr[j]);
+            swap(arr, i, j);
         }
     }
     let pivotPoint = j;
-    swap(arr, arr[low], arr[pivotPoint]);
+    swap(arr, low, pivotPoint);
     return pivotPoint;
 }
+
 
 
 function swap(arr, X, Y) {
