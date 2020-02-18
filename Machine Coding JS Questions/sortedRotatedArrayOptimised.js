@@ -36,3 +36,30 @@ function findIndexHelper(arr, low, high, data) {
     }
   }
 }
+
+
+function findIndexHelperIterative(array, low, high, data) {
+  
+  while(low <= high) {
+    let mid = Math.floor(low + (high-low)/2);
+  
+    if(data === array[mid]) {
+      return mid;
+    } else {
+      if(array[low] <= array[mid]) {
+        if(data >= array[low] && data < array[mid]) {
+          high = mid-1;
+        } else {
+          low = mid+1;
+        }
+      } else {
+        if(data > array[mid] && data <= array[high]) {
+          low = mid+1;
+        } else {
+          high = mid-1;
+        }
+      }
+    }
+  }
+  return -1;
+}
