@@ -44,9 +44,9 @@ function checkMaxSumSubsetHelperDp(array, sum, i, cache) {
         return 0
     } else {
         if(sum < array[i]) {
-            cache[key] = checkMaxSumSubsetHelper(array, sum, i-1);
+            cache[key] = checkMaxSumSubsetHelperDp(array, sum, i-1, cache);
         } else {
-            cache[key] = checkMaxSumSubsetHelper(array, sum-array[i], i-1) + checkMaxSumSubsetHelper(array, sum, i-1);
+            cache[key] = checkMaxSumSubsetHelperDp(array, sum-array[i], i-1, cache) + checkMaxSumSubsetHelperDp(array, sum, i-1, cache);
         }
         return cache[key];
     }
