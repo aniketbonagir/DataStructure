@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<button onclick="myFunction()">Try it</button>
+
+<p>New array: <span id="demo"></span></p>
+
+<script>
+
+
+function myFunction() {
+
+    let res =  mainSolution();
+    // let res2 = solution('The quick brown fox jumps over the lazy dog', 39);
+    
+  console.log(res);
+
+}
+
+function getData1() {
+    return new Promise((resolve, reject) => {
+        setTimeout(()=> {
+            resolve([{a: 1}]);
+        }, 200)
+    })    
+}
+
+function getData2() {
+    return new Promise((resolve, reject) => {
+        setTimeout(()=> {
+            resolve("error");
+        }, 200)
+    })    
+}
+
+async function mainSolution() {
+    try {
+        let responses = await Promise.all([solution(getData1), solution(getData2)]);
+        console.log(responses);
+    } catch(e) {
+        console.log(e)
+    }
+    return [];
+}
+
+function solution(cb) {
+    return new Promise(async (resolve, reject) => {
+        let resp = await cb();
+        if(Array.isArray(resp)) {
+            resolve(resp)
+        } else {
+            reject("error")
+        }
+    }).then(successHandler).catch(failureHandler);
+}
+
+
+function successHandler(resp) {
+    return resp;
+};
+
+function failureHandler(error) {
+    return [];
+}
+
+
+</script>
+
+</body>
+</html>
