@@ -8,7 +8,7 @@ function myFunction() {
 
 function reverseWordInSentence(sentence) {
     let newString = sentence.split("");
-    newString.shift(" ");
+    newString.unshift(" ");
     reverse(newString, 0 ,newString.length-1);
     for(let wordStart=0, wordEnd=0; wordEnd < newString.length-1; wordEnd++) {
         if(newString[wordEnd] != " ") {
